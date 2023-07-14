@@ -14,7 +14,7 @@ android {
         versionCode 12
         versionName "2.1.0"
 
-        flavorDimensions "BlackBox32"
+        flavorDimensions "BlackBox64"
     }
 
     productFlavors {
