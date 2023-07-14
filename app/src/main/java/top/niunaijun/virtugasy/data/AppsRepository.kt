@@ -52,8 +52,11 @@ class AppsRepository {
                 )
                 installedList.add(info)
             }
+
             this.mInstalledList.clear()
             this.mInstalledList.addAll(installedList)
+
+            this.mInstalledList.sortBy { it.name }
         }
 
 
@@ -79,8 +82,6 @@ class AppsRepository {
             }
             appsLiveData.postValue(newInstalledList)
             loadingLiveData.postValue(false)
-
-
         }
 
     }
