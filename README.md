@@ -1,35 +1,35 @@
 ![xx](assets/banner.png)
-### [English Version](README_EN.md)
-
-# 虚拟引擎 · BlackBox
+# Virtual Engine · BlackBox
 > The only people who have anything to fear from free software are those whose products are worth even less. 
 >
 > <p align="right">——David Emery</p>
 
+
 ![](https://img.shields.io/badge/language-java-brightgreen.svg)
 
-黑盒BlackBox，是一款虚拟引擎，可以在Android上克隆、运行虚拟应用，拥有免安装运行能力。黑盒可以掌控被运行的虚拟应用，做任何想做的事情。
+BlackBox is a virtual engine, it can clone and run virtual application on Android,  users don't have to install APK file to run the application on devices. BlackBox control all virtual applications, so you can do anything you want by using BlackBox.
 
-## 交流
+## Discussion
 [Telegram](https://t.me/fvblackbox)
 
-## 支持
-暂不考虑4x，目前已兼容 5.0 ～ 12.0并跟进后续新系统。
+## Support
+Currently we don't consider supporting Android 4.x, it supports Android 5.0 ～ 12.0.
 
-如果条件允许，降级targetSdkVersion到28或以下可以获得更好的兼容性。
+If conditions permit, downgrade targetSdkVersion to 28 or below for better compatibility.
 
-***稳定性未经大量测试，仅供学习交流，请勿用于其他用途***
+***Stability has not been tested extensively and is for learning and communication purposes only Please do not use for other purposes***
 
-## 编译版本下载
-稳定版与测试版下载
-- 稳定版 由管理员手动发布经过验证稳定后的版本。[下载地址](https://github.com/FBlackBox/BlackBox/releases)
-- 测试版 由机器自动编译最新的代码的版本，可体验最新体验也有可能存在问题。 [下载地址](https://github.com/AutoBlackBox/BlackBox/tags)
+## Release
+Stable version and Canary build version
+- Stable version: Stable version is verified and released by administrators. [Download](https://github.com/FBlackBox/BlackBox/releases)
+- Canary build version: Canary build version is compiled automatically by Github Actions, it has the newest features, but it may have some bugs which we have not found. [Download](https://github.com/AutoBlackBox/BlackBox/tags)
 
-## 架构说明
-本项目区分32位与64位，目前是2个不同的app，如在Demo已安装列表内无法找到需要开启的app说明不支持，请编译其他的架构。
+## Special Instruction
 
-## 如何使用
-### Step 1.初始化，在Application中加入以下代码初始化
+This project distinguishes between 32-bit and 64-bit, it was compiled to 2 different demos. If you can not find your target in application list, please use another architecture.
+
+## Usage
+### Step 1.Add initialized code in the Application
 
 ```java
     @Override
@@ -54,66 +54,66 @@
     }
 ```
 
-### Step 2.安装应用至黑盒内
+### Step 2.Install application
 ```java
-    // 已安装的应用可以提供包名
+    // Use package name to install provided that application has been install on device
     BlackBoxCore.get().installPackageAsUser("com.tencent.mm", userId);
     
-    // 未安装的应用可以提供路径
+    // Use APK path to install provided that application has not been install on device
     BlackBoxCore.get().installPackageAsUser(new File("/sdcard/com.tencent.mm.apk"), userId);
 ```
 
-### Step 2.运行黑盒内的应用
+### Step 3.Launch application
 ```java
    BlackBoxCore.get().launchApk("com.tencent.mm", userId);
 ```
 
-### 多开应用操作
+### App Cloner
 <img src="assets/multiw.gif" width="50%">
 
-### 相关API
-#### 获取黑盒内已安装的应用
+### API
+#### Get application list that were installed in BlackBox
 ```java
-   // flgas与常规获取已安装应用保持一致即可
+   // flags can refer to the Android develop documentation
    BlackBoxCore.get().getInstalledApplications(flags, userId);
    
    BlackBoxCore.get().getInstalledPackages(flags, userId);
 ```
 
-#### 获取黑盒内的User信息
+#### Get user information in BlackBox
 ```java
    List<BUserInfo> users = BlackBoxCore.get().getUsers();
 ```
-更多其他操作看BlackBoxCore函数名大概就知道了。
+If you want to perform more operations, please refer to the source code.
 
 
-#### Xposed相关
-- 已支持使用XP模块
-- Xposed已粗略过检测，[Xposed Checker](https://www.coolapk.com/apk/190247)、[XposedDetector](https://github.com/vvb2060/XposedDetector) 均无法检测
+#### Xposed Support
+- BlackBox has supported Xposed Modules.
+- BlackBox has hidden Xposed Framework, [Xposed Checker](https://www.coolapk.com/apk/190247) and [XposedDetector](https://github.com/vvb2060/XposedDetector) can't detect it.
 
 
-## 如何参与开发？
-### 应用分2个模块
-- app模块，用户操作与UI模块
-- Bcore模块，此模块为BlackBox的核心模块，负责完成整个黑盒的调度。
+## How to contribute to this project 
+### This project is divided into two modules
+- app module, it is used to achieve UI and deal with user action.
+- Bcore module, this module is the core of BlackBox, it is used to achieve all functionalities.
 
-如需要参与开发请直接pr就可以了，相关教程请Google或者看 [如何在 GitHub 提交第一个 pull request](https://chinese.freecodecamp.org/news/how-to-make-your-first-pull-request-on-github/)
-### PR须知
-1. 中英文说明都可以，但是一定要详细说明问题
-2. 请遵从原项目的代码风格、设计模式，请勿个性化。
-3. PR不分大小，有问题随时欢迎提交。
+You can contribute to this project by making pull requests.
+### About pull requests
+1. Both Chinese and English commit message / comment are ok,  but you should elaborate on your code.
+2. Please follow the code style and design pattern of this project.
+3. Welcome everybody take part in this project.
 
-## 计划
- - 更多的Service API 虚拟化（目前许多是使用系统API，只有少数已实现）
- - 提供更多接口给开发者（虚拟定位、应用注入等）
+## Plan
+ - More Service API virtualization.
+ - Provide more interfaces for developers (virtual location,  process injection, etc).
 
-## 赞助
-本项目为免费开源项目，日常维护耗费大量精力。如想加快进度或请作者喝杯咖啡。
+## Sponsorship
+This project is a free open source project , routine maintenance consumes a lot of time and effort . If you want to speed up the progress or buy the author a cup of coffee.
 
 - BTC: 3FCo9QtaSbGMhmZYzvL4XUoJUUxZeSdha4
-- USDT（TRC20）: TDzBj9eV1Cdmmj9xd5Y1YLsQqC8zVgi7yd
+- USDT(TRC20): TDzBj9eV1Cdmmj9xd5Y1YLsQqC8zVgi7yd
 
-## 感谢
+## Credits
 - [VirtualApp](https://github.com/asLody/VirtualApp)
 - [VirtualAPK](https://github.com/didi/VirtualAPK)
 - [BlackReflection](https://github.com/CodingGay/BlackReflection)
