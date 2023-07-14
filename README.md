@@ -1,5 +1,5 @@
 ![xx](assets/banner.png)
-# Virtual Engine · BlackBox
+# Virtual Engine · VirtuGasy
 > The only people who have anything to fear from free software are those whose products are worth even less. 
 >
 > <p align="right">——David Emery</p>
@@ -7,7 +7,7 @@
 
 ![](https://img.shields.io/badge/language-java-brightgreen.svg)
 
-BlackBox is a virtual engine, it can clone and run virtual application on Android,  users don't have to install APK file to run the application on devices. BlackBox control all virtual applications, so you can do anything you want by using BlackBox.
+VirtuGasy is a virtual engine, it can clone and run virtual application on Android,  users don't have to install APK file to run the application on devices. VirtuGasy control all virtual applications, so you can do anything you want by using VirtuGasy.
 
 ## Discussion
 [Facebook](https://web.facebook.com/rjvfelix)
@@ -72,7 +72,7 @@ This project distinguishes between 32-bit and 64-bit, it was compiled to 2 diffe
 <img src="assets/multiw.gif" width="50%">
 
 ### API
-#### Get application list that were installed in BlackBox
+#### Get application list that were installed in VirtuGasy
 ```java
    // flags can refer to the Android develop documentation
    BlackBoxCore.get().getInstalledApplications(flags, userId);
@@ -80,7 +80,7 @@ This project distinguishes between 32-bit and 64-bit, it was compiled to 2 diffe
    BlackBoxCore.get().getInstalledPackages(flags, userId);
 ```
 
-#### Get user information in BlackBox
+#### Get user information in VirtuGasy
 ```java
    List<BUserInfo> users = BlackBoxCore.get().getUsers();
 ```
@@ -88,14 +88,14 @@ If you want to perform more operations, please refer to the source code.
 
 
 #### Xposed Support
-- BlackBox has supported Xposed Modules.
-- BlackBox has hidden Xposed Framework, [Xposed Checker](https://www.coolapk.com/apk/190247) and [XposedDetector](https://github.com/vvb2060/XposedDetector) can't detect it.
+- VirtuGasy has supported Xposed Modules.
+- VirtuGasy has hidden Xposed Framework, [Xposed Checker](https://www.coolapk.com/apk/190247) and [XposedDetector](https://github.com/vvb2060/XposedDetector) can't detect it.
 
 
 ## How to contribute to this project 
 ### This project is divided into two modules
 - app module, it is used to achieve UI and deal with user action.
-- Bcore module, this module is the core of BlackBox, it is used to achieve all functionalities.
+- Bcore module, this module is the core of VirtuGasy, it is used to achieve all functionalities.
 
 You can contribute to this project by making pull requests.
 ### About pull requests
@@ -107,12 +107,6 @@ You can contribute to this project by making pull requests.
  - More Service API virtualization.
  - Provide more interfaces for developers (virtual location,  process injection, etc).
 
-## Sponsorship
-This project is a free open source project , routine maintenance consumes a lot of time and effort . If you want to speed up the progress or buy the author a cup of coffee.
-
-- BTC: 3FCo9QtaSbGMhmZYzvL4XUoJUUxZeSdha4
-- USDT(TRC20): TDzBj9eV1Cdmmj9xd5Y1YLsQqC8zVgi7yd
-
 ## Credits
 - [VirtualApp](https://github.com/asLody/VirtualApp)
 - [VirtualAPK](https://github.com/didi/VirtualAPK)
@@ -123,7 +117,7 @@ This project is a free open source project , routine maintenance consumes a lot 
 ### License
 
 > ```
-> Copyright 2022 BlackBox
+> Copyright 2023 VirtuGasy
 >
 > Licensed under the Apache License, Version 2.0 (the "License");
 > you may not use this file except in compliance with the License.
