@@ -9,6 +9,7 @@ import android.view.MenuItem
 import android.view.inputmethod.InputMethodManager
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import cbfg.rvadapter.RVAdapter
 import com.ferfalk.simplesearchview.SimpleSearchView
@@ -36,12 +37,14 @@ class ListActivity : BaseActivity() {
 
         initToolbar(viewBinding.toolbarLayout.toolbar, R.string.installed_app, true)
 
-        mAdapter = RVAdapter<InstalledAppBean>(this,ListAdapter()).bind(viewBinding.recyclerView).setItemClickListener { _, item, _ ->
+        mAdapter = RVAdapter<InstalledAppBean>(this,ListAdapter())
+            .bind(viewBinding.recyclerView).setItemClickListener { _, item, _ ->
             finishWithResult(item.packageName)
         }
 
-        viewBinding.recyclerView.layoutManager = LinearLayoutManager(this)
+        //viewBinding.recyclerView.layoutManager = LinearLayoutManager(this)
 
+        viewBinding.recyclerView.layoutManager = GridLayoutManager(this, 3)
 
         initSearchView()
         initViewModel()
