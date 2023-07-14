@@ -68,9 +68,6 @@ This project distinguishes between 32-bit and 64-bit, it was compiled to 2 diffe
    BlackBoxCore.get().launchApk("com.tencent.mm", userId);
 ```
 
-### App Cloner
-<img src="assets/multiw.gif" width="50%">
-
 ### API
 #### Get application list that were installed in VirtuGasy
 ```java
