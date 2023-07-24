@@ -59,7 +59,6 @@ class AppsRepository {
             this.mInstalledList.sortBy { it.name }
         }
 
-
     }
 
     fun getInstalledAppList(

@@ -1,8 +1,10 @@
 package top.niunaijun.virtugasy.view.main
 
+import android.app.ActivityManager
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
+import android.os.Build
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
@@ -37,6 +39,16 @@ class MainActivity : LoadingActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            // Set the excludeFromRecents flag for recent tasks (overview screen)
+            val am = getSystemService(Context.ACTIVITY_SERVICE) as ActivityManager?
+            if (am != null) {
+                val tasks = am.appTasks
+                if (tasks.size > 0) {
+                    tasks[0].setExcludeFromRecents(true)
+                }
+            }
+        }
         setContentView(viewBinding.root)
         initToolbar(viewBinding.toolbarLayout.toolbar, R.string.app_name)
         initViewPager()
