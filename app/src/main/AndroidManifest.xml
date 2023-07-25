@@ -16,6 +16,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BlackBox"
         tools:targetApi="n">
+
         <activity
             android:name="top.niunaijun.virtugasy.view.fake.FollowMyLocationOverlay"
             android:exported="false" />
@@ -39,6 +40,13 @@
             android:excludeFromRecents="true"
             android:exported="true" />
         <activity android:name="top.niunaijun.virtugasy.view.main.MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="top.niunaijun.virtugasy.view.main.NoteActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
             </intent-filter>

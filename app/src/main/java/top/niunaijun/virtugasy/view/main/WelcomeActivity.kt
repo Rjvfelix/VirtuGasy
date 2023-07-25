@@ -21,7 +21,10 @@ class WelcomeActivity : AppCompatActivity() {
     }
 
     private fun jump() {
-        MainActivity.start(this)
+        //MainActivity.start(this)
+
+        val intent = Intent(this, NoteActivity::class.java)
+        this.startActivity(intent)
         finish()
     }
 
